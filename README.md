@@ -12,6 +12,8 @@
 ![WeasyPrint](https://img.shields.io/badge/WeasyPrint-PDF_Export-blue?style=flat)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-DocsForge-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://frankmark94-docsforge---user-guide-agent-app-vvqkld.streamlit.app/)
+
 ---
 
 DocsForge takes software demo videos and automatically generates structured user guides with inline screenshots. Upload a screen recording, get a polished step-by-step guide ready for your docs.
