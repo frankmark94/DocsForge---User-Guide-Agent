@@ -1,8 +1,27 @@
 # DocsForge — Video-to-User-Guide Agent
 
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.46+-FF4B4B?style=flat&logo=streamlit&logoColor=white)
+![LangGraph](https://img.shields.io/badge/LangGraph-0.2+-1C3C3C?style=flat&logo=langchain&logoColor=white)
+![Anthropic](https://img.shields.io/badge/Claude-Anthropic-D4A574?style=flat&logo=anthropic&logoColor=white)
+![OpenAI](https://img.shields.io/badge/Whisper-OpenAI-412991?style=flat&logo=openai&logoColor=white)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector_Store-FF6F61?style=flat)
+![LangSmith](https://img.shields.io/badge/LangSmith-Tracing-1C3C3C?style=flat&logo=langchain&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-Video_Processing-5C3EE8?style=flat&logo=opencv&logoColor=white)
+![FFmpeg](https://img.shields.io/badge/FFmpeg-Audio_Extraction-007808?style=flat&logo=ffmpeg&logoColor=white)
+![WeasyPrint](https://img.shields.io/badge/WeasyPrint-PDF_Export-blue?style=flat)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat)
+
+---
+
 DocsForge takes software demo videos and automatically generates structured user guides with inline screenshots. Upload a screen recording, get a polished step-by-step guide ready for your docs.
 
 Built with LangGraph for orchestration, Claude for multimodal analysis, OpenAI Whisper for transcription, ChromaDB for vector storage, and Streamlit for the UI. All pipeline steps are traced to LangSmith.
+
+## Screenshot
+
+![DocsForge Upload View](docs/images/upload_view.png)
+*Upload a demo video, view previous guides in the sidebar, and configure settings.*
 
 ## How It Works
 
@@ -10,12 +29,14 @@ Built with LangGraph for orchestration, Claude for multimodal analysis, OpenAI W
 Upload Video → Extract Audio → Extract Frames → Transcribe → Embed → Select Screenshots → Generate Guide
 ```
 
-1. **Extract Audio** — ffmpeg pulls the audio track as 16kHz mono WAV
-2. **Extract Frames** — OpenCV captures frames at regular intervals + scene change detection
-3. **Transcribe** — OpenAI Whisper API generates timestamped transcript segments
-4. **Embed** — Transcript chunks and frame metadata are embedded into ChromaDB via OpenAI embeddings
-5. **Select Screenshots** — Claude vision evaluates frames in batches, rates importance, and picks the best screenshots
-6. **Generate Guide** — Claude writes a structured Markdown user guide with inline screenshot references
+| Step | What Happens |
+|------|-------------|
+| **1. Extract Audio** | ffmpeg pulls the audio track as 16kHz mono WAV |
+| **2. Extract Frames** | OpenCV captures frames at intervals + scene change detection |
+| **3. Transcribe** | OpenAI Whisper API generates timestamped transcript segments |
+| **4. Embed** | Transcript chunks and frame metadata stored in ChromaDB |
+| **5. Select Screenshots** | Claude vision evaluates frames, rates importance, picks the best |
+| **6. Generate Guide** | Claude writes a structured Markdown guide with inline screenshots |
 
 ## Quick Start
 
@@ -104,3 +125,7 @@ All pipeline runs are traced to LangSmith. Set `LANGSMITH_PROJECT` in your `.env
 | UI | Streamlit |
 | Video Processing | OpenCV, ffmpeg |
 | PDF Export | WeasyPrint |
+
+## License
+
+MIT
